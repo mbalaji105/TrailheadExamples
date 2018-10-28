@@ -1,0 +1,14 @@
+<aura:component controller="LightningRadioGroup">
+    <aura:handler name="init" value="{!this}" action="{!c.usingJSON}"/>
+    <aura:attribute name="optionsJSON" type="String" />  
+    <aura:attribute name="value" type="String" default="option1"/>
+    <div class="slds-form slds-form_stacked">
+    	 <lightning:radioGroup aura:id="mygroup"
+                name="radioButtonGroup"
+                label="Radio Button Group Usin JSON"
+                options="{!v.optionsJSON}"
+                value="{!v.value}"        
+                required="true" />
+    
+    </div>	
+</aura:component>

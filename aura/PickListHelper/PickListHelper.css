@@ -1,0 +1,9 @@
+.THIS .optionClass {
+    padding: .1rem;
+}
+.THIS .slds-select[size] option {
+    padding: .1rem;
+}
+.THIS .slds-select[multiple] option {
+    padding: .1rem;
+}

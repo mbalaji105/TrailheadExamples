@@ -1,0 +1,40 @@
+<apex:page controller="Ecom_KM_cls_CommunityArticlecls" sidebar="false">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+ <apex:form > 
+   <!--apex:actionFunction name="sendUrl" action="{!showarticles}" rerender="">
+       <apex:param value="" name="urlString" assignTo="{!urlString}"/>
+   </apex:actionFunction-->
+  <apex:messages />
+  <!--apex:outputText value="{!urlString}"/-->
+  <div class="container">
+  <h2>Q&amp;A Article List</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>       
+      </tr>
+    </thead>
+    <tbody>      
+         <apex:repeat value="{!qnAKnowledgeArticleList}" var="articleObj">
+             <tr>
+                 <td>{!articleObj.Title}</td>
+             </tr>
+         </apex:repeat>            
+    </tbody>
+  </table>
+ </div>
+  
+  
+  
+  <!--apex:pageBlock title="Article List" id="pb" > 
+    <apex:pageBlockTable value="{!qnAKnowledgeArticleList}" var="articleObj">
+        <apex:column value="{!articleObj.Title}"/>
+    </apex:pageBlockTable>
+  </apex:pageBlock-->
+ </apex:form>
+</apex:page>

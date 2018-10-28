@@ -1,0 +1,7 @@
+<apex:page contentType="application/vnd.ms-powerpoint#YourPPTname.ppt">
+    Your PPT Title    
+    
+    <div>
+            Hello Balaji .
+    </div>
+</apex:page>

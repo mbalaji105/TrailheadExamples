@@ -1,0 +1,15 @@
+<aura:component controller="LightningRadioGroup">
+    <aura:handler name="init" value="{!this}" action="{!c.usingMap}"/>
+    <aura:attribute name="optionsList" type="List" />  
+    <aura:attribute name="value" type="String" default="option1"/>
+    <div class="slds-form slds-form_stacked">
+        <h1>Lightning Radio Group Example</h1>
+    	 <lightning:radioGroup aura:id="mygroup"
+                name="radioButtonGroup"
+                label="Radio Button Group Usin Map"
+                options="{!v.optionsList}"
+                value="{!v.value}"        
+                required="true" />
+    
+    </div>	
+</aura:component>

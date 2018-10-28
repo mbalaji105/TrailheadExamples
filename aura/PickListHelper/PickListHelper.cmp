@@ -1,0 +1,15 @@
+<aura:component controller="PicklstHelper">  
+  <aura:registerEvent name="PicklistSelected" type="c:PickListEvt"/>
+   <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+   <aura:attribute name="objectName" type="String"/>
+    <aura:attribute name="FieldName" type="String" />
+    <aura:attribute name="FieldLabel" type="String" default="PickLIst"/>
+    <aura:attribute name="MultiSelect" type="Boolean" default="false" />
+    <aura:attribute name="SelectedValue" type="String" default="" />
+   <div class="slds-form-element">
+      <label class="slds-form-element__label" for="select-01">{!v.FieldLabel}</label>
+      <div>
+         <ui:inputSelect aura:id="PickListId" multiple="{!v.MultiSelect}" class="slds-select"  change="{!c.onPicklistChange}"/>
+      </div>
+   </div>
+</aura:component>

@@ -1,0 +1,22 @@
+<aura:component controller="AccountSavecls">
+    <aura:attribute name="accountObj" type="Account" default="{'sobjectType': 'Account',
+                         										'Name':'','Type':''}"/>
+    <div class="slds">        
+        <div class="slds-card">
+            <div class="slds-card__header slds-grid">
+                <div class="slds-media__body">
+                    <span class="slds-text-heading_small">Account Save Example with Picklist Helper</span>
+                </div>
+            </div>
+            <div class="slds-card__body slds-card__body_inner">
+                <ui:inputText class="slds-input" label="Name"  value="{!v.accountObj.Name}"/><br/>            
+                <c:PickListHelper objectName="Account" 
+                                  FieldName="Type" 
+                                  FieldLabel="Account Type"
+                                  SelectedValue="Customer - Direct"
+                                  PicklistSelected="{!c.changeValue}"/><br/>
+                <ui:button class="slds-button" press="{!c.saveAct}">Save Account</ui:button>
+            </div>
+        </div>   
+    </div>
+</aura:component>

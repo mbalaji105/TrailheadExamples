@@ -1,0 +1,70 @@
+<aura:component controller="PagingSortingController">
+	<aura:attribute type="Account[]"    name="allAccounts" />
+    <aura:attribute type="Account[]"    name="currentList" />
+    <aura:attribute type="Integer"      name="pageNumber"		default="1" />
+    <aura:attribute type="Integer"      name="maxPage"			default="1" />
+    <aura:attribute type="Integer" 		name="noOfRecordspage"  default="5"/>
+    <aura:attribute type="String"       name="sortField" />
+    <aura:attribute type="Boolean"		name="sortAsc" />
+    <aura:handler name="init"			value="{!this}"			action="{!c.doInit}" />
+    <aura:handler name="change"			value="{!v.pageNumber}"	action="{!c.renderPage}" />
+    <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+        <thead>
+            <tr class="slds-text-title--caps">
+                <th scope="col">
+                    <div class="slds-truncate" title="Account Name">
+                        Account Name                       
+                    </div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Industry">
+                        Industry                        
+                    </div>
+                </th>
+                <th scope="col">
+                    <div  class="slds-truncate" title="Annual Revenue">
+                        Annual Revenue                        
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.currentList}" var="record">
+                <tr>
+                	<th data-label="Account Name">
+                        <div class="slds-truncate" title="{!record.Name}">
+                            {!record.Name}
+                        </div>
+                    </th>
+                	<th data-label="Industry">
+                        <div class="slds-truncate" title="{!record.Industry}">
+                            {!record.Industry}
+                        </div>
+                    </th>
+                	<th data-label="Annual Revenue">
+                        <div class="slds-truncate" title="{!record.AnnualRevenue}">
+                            {!record.AnnualRevenue}
+                        </div>
+                    </th>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+    <div class="slds-button-group" role="group">
+        <button onclick="{!c.firstPage}" class="slds-button slds-button--neutral">
+            First
+        </button>
+        <button onclick="{!c.prevPage}" class="slds-button slds-button--neutral">
+            Prev
+        </button>
+        <button class="slds-button slds-button--neutral">
+            {!v.pageNumber} / {!v.maxPage}
+        </button>
+        <button onclick="{!c.nextPage}" class="slds-button slds-button--neutral">
+            Next
+        </button>
+        <button onclick="{!c.lastPage}" class="slds-button slds-button--neutral">
+            Last
+        </button>
+    </div>
+</aura:component>

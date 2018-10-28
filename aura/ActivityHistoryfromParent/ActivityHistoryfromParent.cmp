@@ -1,0 +1,80 @@
+<aura:component controller="ActivityHistoryController"  implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="activityHistoryList" type="ActivityHistory[]"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+        <thead>
+            <tr class="slds-text-title--caps">
+                <th scope="col">
+                    <div class="slds-truncate" title="Subject">
+                       Subject                       
+                    </div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Name">
+                        Name                        
+                    </div>
+                </th>
+                <th scope="col">
+                    <div  class="slds-truncate" title="Related To">
+                       Related To                       
+                    </div>
+                </th>
+                <th scope="col">
+                    <div  class="slds-truncate" title="Task">
+                       Task                       
+                    </div>
+                </th>
+                <th scope="col">
+                    <div  class="slds-truncate" title="Due Date">
+                       Due Date                       
+                    </div>
+                </th>
+                <th scope="col">
+                    <div  class="slds-truncate" title="Due Date">
+                      Assign To                      
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.activityHistoryList}" var="record">
+                <tr>
+                	<th data-label="Subject">
+                        <div class="slds-truncate" title="{!record.Subject}">
+                            {!record.Subject}
+                        </div>
+                    </th>
+                	<th data-label="Name">
+                        <div class="slds-truncate" title="{!record.Who.Name}">
+                            {!record.Who.Name}
+                        </div>
+                    </th>
+                	<th data-label="Related To">
+                        <div class="slds-truncate" title="{!record.What.Name}">
+                            {!record.What.Name}
+                        </div>
+                    </th>
+                    <th data-label="Task">
+                        <div class="slds-truncate" title="{!record.IsTask}">
+                            {!record.IsTask}
+                        </div>
+                    </th>
+                    <th data-label="Due Date">
+                        <div class="slds-truncate" title="{!record.ActivityDate}">
+                            <lightning:formattedDateTime value="{!record.ActivityDate}" 
+                                 year="numeric" month="numeric" day="2-digit" hour="2-digit"
+                                                         minute="2-digit" second="2-digit"/>
+                           
+                        </div>
+                    </th>
+                    <th data-label="Assign To">
+                        <div class="slds-truncate" title="{!record.Owner.Name}">
+                            {!record.Owner.Name}
+                        </div>
+                    </th>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="by this event we are passing the selected Record in the Obeerving Component">
+    <aura:attribute name="RecordByEvent" type="sObject"/>
+</aura:event>

@@ -1,0 +1,14 @@
+<aura:component controller="ContactSavecls">
+    <aura:attribute name="contactObj" type="Contact" default="{'sobjectType':'Contact',
+                                                              'AccountId':'','FirstName':'',
+                                                               'LastName':''}"/>
+    <div>
+   		<div class="slds-form-element__control">
+        <ui:inputText class="slds-input" label="Last Name" value="{!v.contactObj.LastName}"/>
+        <c:CustomLookup ObjName="Account" FieldLabel="Related Account"
+            RecordCount="5" 
+            RecordSelected="{!c.handleRecordSelection}" />
+       </div>    
+        <ui:button press="{!c.contactSave}">Save Contact</ui:button>
+    </div>
+</aura:component>

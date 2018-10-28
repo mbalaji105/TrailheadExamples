@@ -1,0 +1,11 @@
+<aura:component description="IconComp">
+    <aura:attribute name="iconName" type="String" default="action:more"/>
+    <aura:attribute name="size" type="String" default="small"/>
+    <aura:attribute name="iconSize" type="String" default="small"/>
+    <aura:attribute name="alternativeText" type="String" default="Indicates More"/>
+    <aura:attribute name="className"    type="String" default=""/>
+    <aura:attribute name="title" type="String" default=""/>
+    <aura:attribute name="variantName" type="String" default=""/>
+    <lightning:icon iconName="{!v.iconName}" size="{!v.iconSize}" alternativeText="{!v.alternativeText}" title="{!v.title}"
+                    class="{!v.className}" variant="{!v.variantName}"/>
+</aura:component>

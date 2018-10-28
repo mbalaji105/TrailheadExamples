@@ -1,0 +1,59 @@
+<aura:component controller="ContactCls">
+    <aura:attribute name="contObj" type="Contact" default="{'sobjectType':'Contact',
+                                                             'FirstName':'',
+                                                             'LastName':''}"/>
+    <aura:attribute name="contactList" type="ContactWrapper[]"/>    
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}"/>   
+    <div class="slds-card">
+         <div class="slds-card__header slds-grid">
+             <div class="slds-media__body">
+        		 <span class="slds-text-heading_small">Save Contact and Add it to table with checkbox selection</span>
+              </div>
+        </div>
+        <div class="slds-card__body slds-card__body_inner">
+             <ui:inputText class="slds-input" label="First Name" value="{!v.contObj.FirstName}"/><br/>
+             <ui:inputText class="slds-input" label="Last Name" value="{!v.contObj.LastName}"/><br/>
+            <ui:button class="slds-button" press="{!c.contactSave}">Save</ui:button>
+        </div>
+    </div>
+    <br/>
+    <div class="slds-card">
+         <div class="slds-card__body slds-card__body_inner">
+		<table class="slds-table slds-table_bordered slds-table_cell-buffer"> 
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col">
+                    <div class="slds-truncate">Select</div>
+                </th>	
+                <th scope="col">
+                    <div class="slds-truncate" title="First Name">First Name</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Last Name">Last Name</div>
+                </th>                
+            </tr>
+        </thead>   
+        <tbody>
+        	<aura:iteration items="{!v.contactList}" var="contactWrap" indexVar="index">
+                	<tr class="slds-text-title_caps">
+                        <td>
+                           <ui:inputCheckbox value="{!contactWrap.isSelected}"/>
+                        </td>                                              
+                	
+                        <td>
+                            <ui:outputText value="{!contactWrap.contactObj.FirstName}"/> 
+                        </td> 
+                        <td>
+                            <ui:outputText value="{!contactWrap.contactObj.LastName}"/> 
+                        </td>                                               
+                	</tr>	
+            </aura:iteration>
+        
+        </tbody>
+    </table>
+    
+    <br/>
+    <ui:button class="slds-button" press="{!c.updateSelectedContacts}">Process Contacts</ui:button>
+        </div>
+  </div>
+</aura:component>
